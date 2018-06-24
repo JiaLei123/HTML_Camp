@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import GroceryList from './GroceryList'
 
 class App extends Component {
   render() {
@@ -24,36 +25,11 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <h2>{a + b}</h2>
-        <GroceryList />
+        <GroceryList></GroceryList>
       </div>
     );
   }
 }
-
-class ListItem extends Component {
-  render() {
-    return(
-      <li>
-        {this.propos}
-      </li>
-    )
-  }
-}
-
-class GroceryList extends Component{
-  render() {
-    return (
-      <ul>
-        <ListItem quantity="1" name="Bread" />
-        <ListItem quantity="6" name="Eggs" />
-        <ListItem quantity="2" name="Milk" />
-      </ul>
-    );
-  }
-}
-
-
-
 
 
 export default App;

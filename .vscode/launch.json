@@ -7,8 +7,13 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "启动程序",
-            "program": "${file}"
-        }
+            "name": "Launch via NPM",
+            "runtimeExecutable": "npm",
+            "cwd": "${workspaceRoot}/myreact/my-app",
+            "runtimeArgs": [
+                "start",
+            ],
+            "port": 3000
+        },
     ]
 }
