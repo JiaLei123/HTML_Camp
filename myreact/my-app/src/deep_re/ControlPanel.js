@@ -26,7 +26,7 @@ class ControlPanel extends Component {
     render() {
         return(
             <div>
-                <Counter onUpdate={this.onCounterUpdate} caption={20}/>
+                <Counter onUpdate={this.onCounterUpdate} caption="First"/>
                 <Counter onUpdate={this.onCounterUpdate} caption="Second" initValue={this.initValues[1]}/>
                 <Counter onUpdate={this.onCounterUpdate} caption="Thrid" initValue={this.initValues[2]}/>
             <hr/>
