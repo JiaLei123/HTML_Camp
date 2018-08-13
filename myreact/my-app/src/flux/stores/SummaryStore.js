@@ -1,39 +1,48 @@
-import AppDispatcher from '../AppDispatcher';
-import * as ActionTypes from '../ActionTypes';
+import AppDispatcher from '../AppDispatcher.js';
+import * as ActionTypes from '../ActionTypes.js';
+import CounterStore from './CounterStore.js';
 import {EventEmitter} from 'events';
 
-const CHANGE_EVENT = 'changed'
+const CHANGE_EVENT = 'changed';
 
-const counterValues = {
-    'First':0,
-    'Second': 10,
-    'Thrid': 30
-};
-
-const CounterStore = Object.assign({}, EventEmitter.prototype, {
-    getCounterValues: function() {
-        return counterValues;
-    },
-    emitChange: function() {
-        this.emit(CHANGE_EVENT)
-    },
-    adChangeListener: function(callback) {
-        this.on(CHANGE_EVENT, callback);
-    },
-    removeChangeListener: function(callback) {
-        this.removeListener(CHANGE_EVENT, callback);
+function computeSummary(counterValues) {
+  let summary = 0;
+  for (const key in counterValues) {
+    if (counterValues.hasOwnProperty(key)) {
+      summary += counterValues[key];
     }
+  }
+  return summary;
+}
+
+const SummaryStore = Object.assign({}, EventEmitter.prototype, {
+  getSummary: function() {
+    return computeSummary(CounterStore.getCounterValues());
+  },
+
+  emitChange: function() {
+    this.emit(CHANGE_EVENT);
+  },
+
+  addChangeListener: function(callback) {
+    this.on(CHANGE_EVENT, callback);
+  },
+
+  removeChangeListener: function(callback) {
+    this.removeListener(CHANGE_EVENT, callback);
+  }
+
 });
 
-CounterStore.dispatchToken = AppDispatcher.register((action) => {
-    if (action.type === ActionTypes.INCREMENT) {
-      counterValues[action.counterCaption] ++;
-      CounterStore.emitChange();
-    } else if (action.type === ActionTypes.DECREMENT) {
-      counterValues[action.counterCaption] --;
-      CounterStore.emitChange();
-    }
-  });
-  
-  export default CounterStore;
+
+SummaryStore.dispatchToken = AppDispatcher.register((action) => {
+  if ((action.type === ActionTypes.INCREMENT) ||
+      (action.type === ActionTypes.DECREMENT)) {
+    AppDispatcher.waitFor([CounterStore.dispatchToken]);
+
+    SummaryStore.emitChange();
+  }
+});
+
+export default SummaryStore;
 
