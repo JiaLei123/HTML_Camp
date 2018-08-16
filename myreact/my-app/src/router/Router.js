@@ -12,11 +12,7 @@ class Routes extends Component {
     render(){
         return(
             <BrowserRouter>
-                <Route path="/" component={App}>        
-                    <Route path="home" Component={Home}/>
-                    <Route path="About" Component={About}/>
-                    <Route path="*" Component={NotFound}/>
-                </Route>
+                <App />
             </BrowserRouter>
         );
 

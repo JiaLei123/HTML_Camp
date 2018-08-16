@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bizcharts": "^3.2.1-beta.2",
+    "bizcharts": "^3.2.1-beta.4",
     "chart.js": "^2.7.2",
     "flux": "^3.1.3",
     "react": "^16.4.1",
