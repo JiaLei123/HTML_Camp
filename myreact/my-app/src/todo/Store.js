@@ -7,4 +7,4 @@ const reducer = combineReducers({
     filter: fitlerReducer
 })
 
-export default createStore(reducer)
+export default createStore(reducer, {})
