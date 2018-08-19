@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Provider from './Provider';
+import {Provider} from 'react-redux';
 import store from './Store';
 import ControlPanel from './view/ControlPanel';
 

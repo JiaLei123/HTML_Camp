@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'; 
 import * as Actions from '../Action.js';
-import store from '../Store.js';
 import Counter from './Counter.js';
 
 const buttonStyle = {
@@ -10,8 +9,8 @@ const buttonStyle = {
 
 class CounterContainer extends Component {
 
-    constructor(props) {
-      super(props);
+    constructor(props, context) {
+      super(props, context);
   
       this.onChange = this.onChange.bind(this);
       this.onClickIncrementButton = this.onClickIncrementButton.bind(this);
@@ -22,16 +21,16 @@ class CounterContainer extends Component {
 
     getOwnState() {
         return {
-            value: store.getState()[this.props.caption]
+            value: this.context.store.getState()[this.props.caption]
         }
     }
 
     componentDidMount() {
-        store.subscribe(this.onChange)
+        this.context.store.subscribe(this.onChange)
     }
 
     componentWillUnmount() {
-        store.unsubscribe(this.onChange)
+        this.context.store.unsubscribe(this.onChange)
     }
 
     onChange() {
@@ -39,11 +38,11 @@ class CounterContainer extends Component {
     }
 
     onClickIncrementButton() {
-        store.dispatch(Actions.increment(this.props.caption))
+        this.context.store.dispatch(Actions.increment(this.props.caption))
     }
 
     onClickDecrementButton() {
-        store.dispatch(Actions.decrement(this.props.caption))
+        this.context.store.dispatch(Actions.decrement(this.props.caption))
     }
     render() {
         return (
