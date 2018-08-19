@@ -52,4 +52,8 @@ class CounterContainer extends Component {
     }
 }
 
+CounterContainer.contextTypes = {
+    store:PropTypes.object
+}
+
 export default CounterContainer;
