@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Counter from './Counter.js';
 import Summary from './Summary.js';
 import Counter from './Counter.js';
 

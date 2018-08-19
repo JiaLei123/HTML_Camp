@@ -9,7 +9,9 @@ import ClickCounter from './deep_re/ClickCounter'
 // import ControlPane from './redux1/view/ControlPanel';
 // import ControlPane from './redux2/view/ControlPanel';
 // import Routes from './router/Router';
-import App from './redux.context/App'
+// import App from './redux.context/App'
+import App from './react.redux.context/App'
+
 // import Routes from './router.match/Router';
 
 
