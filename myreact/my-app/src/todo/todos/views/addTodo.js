@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types'; 
 import {connect} from 'react-redux';
 
 import {addTodo} from '../Action';
@@ -6,6 +7,8 @@ import {addTodo} from '../Action';
 class AddTodo extends Component {
     constructor(props, context) {
         super(props, context);
+        this.onSubmit = this.onSubmit.bind(this);
+        this.refInput = this.refInput.bind(this);
     }
 
     onSubmit(ev){
@@ -15,7 +18,7 @@ class AddTodo extends Component {
             return;
         }
 
-        this.props.onAdd(input.node);
+        this.props.onAdd(input.value);
         input.value="";
     }
     
@@ -49,4 +52,5 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
-  
+
+export default connect(null, mapDispatchToProps)(AddTodo)

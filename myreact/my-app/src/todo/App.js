@@ -1,5 +1,5 @@
-import {Provider} from 'C:/Users/JiaLei/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react-redux';
-import React from 'C:/Users/JiaLei/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
+import {Provider} from 'react-redux';
+import React from 'react';
 import TodoApp from './TodoApp';
 import store from './Store';
 

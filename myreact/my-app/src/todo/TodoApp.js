@@ -1,4 +1,4 @@
-import React from 'C:/Users/JiaLei/AppData/Local/Microsoft/TypeScript/2.9/node_modules/@types/react';
+import React from 'react';
 import {view as Todos} from './todos';
 import {view as Filter} from './filter';
 

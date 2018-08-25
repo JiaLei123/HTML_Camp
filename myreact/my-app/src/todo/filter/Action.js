@@ -1,4 +1,4 @@
-import {SET_FILTER}  from './actionType';
+import {SET_FILTER}  from './ActionType';
 
 let nextTodoID = 0;
 
