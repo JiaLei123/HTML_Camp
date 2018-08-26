@@ -54,7 +54,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         onRemoveTodo: (id) => {
             dispatch(removeTodo(id))
-        } 
+        }
     }
 }
 
