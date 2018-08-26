@@ -11,7 +11,8 @@ import './index.css';
 // import Routes from './router/Router';
 // import App from './redux.context/App'
 // import App from './todo/App'
-import App from './weather_redux/App'
+import App from './todo.faster1/App'
+// import App from './weather_redux/App'
 // import Routes from './router.match/Router';
 
 
