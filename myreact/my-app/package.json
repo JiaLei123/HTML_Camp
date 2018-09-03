@@ -29,6 +29,7 @@
   "devDependencies": {
     "enzyme": "^3.5.0",
     "react-addons-test-utils": "^15.6.2",
+    "redux-mock-store": "^1.5.3",
     "sinon": "^6.1.5"
   }
 }
