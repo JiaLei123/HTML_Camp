@@ -27,7 +27,7 @@ export const fetchWeather = (cityCode) => {
 
         dispatch(fetchWeatherStarted())
 
-        fetch(apiUrl).then((response) =>{
+        return fetch(apiUrl).then((response) =>{
             if (response.status !== 200){
                 throw new Error("fail to get response with staus" +response.status);
             }
